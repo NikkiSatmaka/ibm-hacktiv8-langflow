@@ -1,0 +1,44 @@
+services:
+  langflow:
+    image: ${LANGFLOW_IMAGE:-docker.io/langflowai/langflow:latest}
+    ports:
+      - 7860:7860
+    environment:
+      LANGFLOW_CONFIG_DIR: ${LANGFLOW_CONFIG_DIR:-/app/langflow}
+      LANGFLOW_AUTO_LOGIN: ${LANGFLOW_AUTO_LOGIN:-true}
+      DO_NOT_TRACK: ${DO_NOT_TRACK:-true}
+    volumes:
+      - langflow-data:/app/langflow:rw
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:7860/health_check"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+    deploy:
+      resources:
+        limits:
+          cpus: ${LANGFLOW_CPUS_LIMIT:-1.0}
+          memory: ${LANGFLOW_MEM_LIMIT:-2g}
+        reservations:
+          cpus: ${LANGFLOW_CPUS_RESERVATION:-0.25}
+          memory: ${LANGFLOW_MEM_RESERVATION:-256m}
+
+  chroma:
+    image: ${CHROMA_IMAGE:-docker.io/chromadb/chroma:latest}
+    volumes:
+      - chroma-data:/data
+    environment:
+      ANONYMIZED_TELEMETRY: ${ANONYMIZED_TELEMETRY:-false}
+    deploy:
+      resources:
+        limits:
+          cpus: ${CHROMA_CPUS_LIMIT:-1.0}
+          memory: ${CHROMA_MEM_LIMIT:-2g}
+        reservations:
+          cpus: ${CHROMA_CPUS_RESERVATION:-0.25}
+          memory: ${CHROMA_MEM_RESERVATION:-256m}
+
+volumes:
+  langflow-data:
+  chroma-data:

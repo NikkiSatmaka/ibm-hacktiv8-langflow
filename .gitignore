@@ -1,0 +1,36 @@
+# Docker volumes and runtime files
+**/volumes/
+**/data/
+**/cache/
+
+# Environment files with secrets
+**/.env
+
+# Password and secret files
+**/secrets/*
+**/secrets/*.txt
+**/secrets/*.json
+
+# Logs and temporary files
+**/*.log
+**/tmp/
+**/temp/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Development databases
+**/*.db
+**/*.sqlite
+**/*.sqlite*
+
+# Docker compose generated files
+**/compose.override.yaml
