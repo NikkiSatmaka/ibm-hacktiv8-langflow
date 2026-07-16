@@ -24,21 +24,5 @@ services:
           cpus: ${LANGFLOW_CPUS_RESERVATION:-0.25}
           memory: ${LANGFLOW_MEM_RESERVATION:-256m}
 
-  chroma:
-    image: ${CHROMA_IMAGE:-docker.io/chromadb/chroma:latest}
-    volumes:
-      - chroma-data:/data
-    environment:
-      ANONYMIZED_TELEMETRY: ${ANONYMIZED_TELEMETRY:-false}
-    deploy:
-      resources:
-        limits:
-          cpus: ${CHROMA_CPUS_LIMIT:-1.0}
-          memory: ${CHROMA_MEM_LIMIT:-2g}
-        reservations:
-          cpus: ${CHROMA_CPUS_RESERVATION:-0.25}
-          memory: ${CHROMA_MEM_RESERVATION:-256m}
-
 volumes:
   langflow-data:
-  chroma-data:

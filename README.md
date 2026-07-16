@@ -1,20 +1,18 @@
 # IBM Hacktiv8 Lab
 
-Docker Compose setup for running Langflow with ChromaDB and OpenAI.
+Docker Compose setup for running Langflow.
 
 ## Services
 
 - **Langflow** — visual workflow builder for AI apps (port 7860)
-- **ChromaDB** — vector database for embeddings
 
 ## Prerequisites
 
 - Docker and Docker Compose
-- An OpenAI API key (or compatible provider)
 
 ## Setup
 
-1. Copy `.env.example` to `.env` and fill in your API credentials:
+1. Copy `.env.example` to `.env`:
 
    ```sh
    cp .env.example .env
