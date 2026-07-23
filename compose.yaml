@@ -6,6 +6,8 @@ services:
     environment:
       LANGFLOW_CONFIG_DIR: ${LANGFLOW_CONFIG_DIR:-/app/langflow}
       LANGFLOW_AUTO_LOGIN: ${LANGFLOW_AUTO_LOGIN:-true}
+      LANGFLOW_SUPERUSER: ${LANGFLOW_SUPERUSER}
+      LANGFLOW_SUPERUSER_PASSWORD: ${LANGFLOW_SUPERUSER_PASSWORD}
       DO_NOT_TRACK: ${DO_NOT_TRACK:-true}
     volumes:
       - langflow-data:/app/langflow:rw
