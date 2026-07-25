@@ -18,13 +18,21 @@ Docker Compose setup for running Langflow.
    cp .env.example .env
    ```
 
-2. Start the services:
+2. Edit `.env` and set variables for:
+
+   ```sh
+   LANGFLOW_AUTO_LOGIN
+   LANGFLOW_SUPERUSER
+   LANGFLOW_SUPERUSER_PASSWORD
+   ```
+
+3. Start the services:
 
    ```sh
    docker compose up -d
    ```
 
-3. Open Langflow at http://localhost:7860.
+4. Open Langflow at <http://localhost:7860>.
 
 ## Stopping
 
