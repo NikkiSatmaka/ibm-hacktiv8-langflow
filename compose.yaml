@@ -4,6 +4,8 @@ services:
     ports:
       - ${HOST_PORT:-7860}:${LANGFLOW_PORT:-7860}
     environment:
+      LANGFLOW_HOST: ${LANGFLOW_HOST:-localhost}
+      LANGFLOW_PORT: ${LANGFLOW_PORT:-7860}
       LANGFLOW_CONFIG_DIR: ${LANGFLOW_CONFIG_DIR:-/app/langflow}
       LANGFLOW_DATABASE_URL: ${LANGFLOW_DATABASE_URL:-sqlite:////app/langflow/langflow.db}
       LANGFLOW_AUTO_LOGIN: ${LANGFLOW_AUTO_LOGIN:-true}
